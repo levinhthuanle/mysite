@@ -1,0 +1,16 @@
+{% extends "main/base.html" %} {% block title %} Login Here {% endblock%} {% load crispy_forms_tags %} {% block content %}
+<!-- -------------- -->
+
+<div class="row justify-content-center">
+    <div class="col-8">
+        <h1 class="mt-2" style="padding-top:30px;">Đăng nhập</h1>
+        <hr class="mt-0 mb-4">
+        <form method="post" class="form-group">
+            {% csrf_token %} {{form|crispy}}
+
+            <button type="submit" class="btn btn-success"> Đăng nhập </button>
+            <p> Chưa có tài khoản? <a href="/register"> Tạo tài khoản tại đây</a> </p>
+        </form>
+    </div>
+</div>
+{% endblock%}

@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+
+<!-- Title -->
+{% block title %} Create new list {% endblock %}
+
+
+<!-- Content -->
+
+
+{% block content %} {% if user.is_authenticated %}
+
+<style>
+    #clickToLoginButton {
+        text-decoration: none;
+        font-size: 40px;
+        margin: 50px;
+    }
+</style>
+
+<h1 style="margin: 30px;"> Thêm sản phẩm muốn bán </h1>
+<form method="post" action="/create/" class="form-group">
+    {% csrf_token %}
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <button type="submit" , name="save" class="btn btn-success" style="margin-right: 10px; margin-left: 30px;"> POST</button>
+        </div>
+        {{form.name}}
+    </div>
+</form>
+
+{% else %}
+<a href="/login" style="text-decoration: none; font-size: 40px; padding: 30px;"> Đăng nhập để tiếp tục</a> {% endif%} {% endblock %}

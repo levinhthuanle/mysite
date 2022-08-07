@@ -1,0 +1,48 @@
+{% extends "main/base.html" %} {% block title%} View List{% endblock %}
+
+<!-- Block  -->
+{% block content %}
+
+
+
+<div class="row justify-content-center">
+    <div class="col-8">
+        <h1 class="mt-2">Thông tin sản phẩm</h1>
+        <hr class="mt-0 mb-4"> {% if user.is_authenticated %}
+        <h1> {{ls.name}} </h1>
+
+
+        <form method="post" action="#">
+            {% csrf_token %} {% for item in ls.item_set.all %}
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <input type="checkbox" , value="clicked" , name="c{{item.id}}">
+                    </div>
+                </div>
+                <input type="text" , value="{{item.text}}" class="form-control">
+            </div>
+            {% endfor%} {% for item in ls.url_set.all %}
+            <img src="{{item.text}}" alt="" width="200" height="200"> {% endfor%}
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button type="submit" , name="newItem" , value="newItem" , class="btn btn-success"> Thêm thành phần </button>
+                </div>
+                <input type="text" name="newI">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button type="submit" , name="newUrl" , value="newUrl" , class="btn btn-success"> Thêm đường dẫn ảnh </button>
+                </div>
+                <input type="text" name="newU">
+            </div>
+
+            <button type="submit" , name="save" , value="save" , class="btn btn-success"> Lưu </button>
+        </form>
+        {% else %}
+        <a href="/login" style="text-decoration: none; font-size: 40px; padding: 30px;"> Đăng nhập để tiếp tục</a> {% endif%}
+    </div>
+</div>
+{% endblock%}

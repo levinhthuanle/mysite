@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Home page </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<style type="text/css">
+    * {
+        font-family: consolas;
+    }
+    
+    .sidenav {
+        top: 0;
+        position: sticky;
+        background-color: #333;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+    
+    .sidenav .buttonTop {
+        text-decoration: none;
+        padding: 6px 12px 6px 16px;
+        color: #818181;
+        display: block;
+        font-size: 20px;
+    }
+    
+    .sidenav a:hover {
+        color: #f1f1f1;
+        opacity: 0.8;
+    }
+    
+    #footer {
+        height: 300px;
+        width: 100%;
+        background-color: #333;
+        bottom: 0;
+    }
+</style>
+
+<body>
+
+
+    <div class="sidenav">
+        <a href="/home" class="buttonTop"> Trang chủ </a> <br>
+        <a href="/login/" class="buttonTop"> Đăng nhập </a> <br>
+        <a href="/create" class="buttonTop"> Thêm sản phẩm </a> <br>
+        <a href="/register/" class="buttonTop"> Đăng ký</a> <br>
+        <a href="/logout/" class="buttonTop"> Đăng xuất</a> <br>
+
+        <div id="checkLogin">
+            {% if user.is_authenticated %}
+            <p class="buttonTop" style="padding: 0px; padding-left: 700px; padding-top: 6px;"> Chào mừng bạn quay trở lại! </p>
+            {% else %}
+            <p class=" buttonTop " style="padding: 0px; padding-left: 700px; padding-top: 6px;"> Vui lòng đăng nhập <a href="/login "> tại đây</a></p>
+            {% endif%}
+
+
+        </div>
+    </div>
+
+    <div id="content " , name="content " , class="main ">
+        {% block content %} {% endblock %}
+
+    </div>
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin="anonymous "></script>
+
+</html>
